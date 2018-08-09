@@ -11,7 +11,6 @@ Router.map(function() {
 		this.route('new');
 	    this.route('show', {path: ':todo_list_id'});
 	    this.route('edit', {path: ':todo_list_id/edit'});
-	    this.route('destroy', {path: ':todo_list_id/destroy'});
 	});
 	this.route('login');
 });

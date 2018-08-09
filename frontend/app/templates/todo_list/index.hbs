@@ -9,11 +9,12 @@
       <td>{{todo_list.title}}</td>
       <td>{{todo_list.description}}</td>
        <td>
-        {{#link-to 'todo_list.show' todo_list}}view{{/link-to}}
-        {{#link-to 'todo_list.edit' todo_list}}edit{{/link-to}}
-        {{#link-to 'todo_list.destroy' todo_list}}destroy{{/link-to}}
+          {{#link-to 'todo_list.edit' todo_list}}edit{{/link-to}}
+      </td>
+       <td> 
+        <a href="#" {{action 'deleteAfterConfirm' todo_list.id }}>Destroy</a>
       </td>
     </tr>
   {{/each}}
 </table>
-<a href="todo_list/new">Create</a>
+<a href="todo_list/new">Create To Do List</a>

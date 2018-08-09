@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   model() {
     return this.store.createRecord('todo_list');
   },
