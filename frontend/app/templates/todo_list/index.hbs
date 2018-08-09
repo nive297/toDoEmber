@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+
+  {{#each model as |todo_list|}}
+    <tr>
+      <td>{{todo_list.title}}</td>
+      <td>{{todo_list.description}}</td>
+       <td>
+        {{#link-to 'todo_list.show' todo_list}}view{{/link-to}}
+        {{#link-to 'todo_list.edit' todo_list}}edit{{/link-to}}
+        {{#link-to 'todo_list.destroy' todo_list}}destroy{{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+</table>
+<a href="todo_list/new">Create</a>
