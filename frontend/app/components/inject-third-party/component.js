@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import config from 'frontend/config/environment'
 import survey from 'frontend/utils/survey';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   didInsertElement() {
-    survey();
+    survey(config);
   }
 
 });
