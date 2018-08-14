@@ -22,7 +22,7 @@ module.exports = function(environment) {
       // when it is created
     },
     advocately:{
-      apiToken: "wXCyBRzu-yKzssWsUxxqZ5MVPrRzDt9m"
+      apiToken: "RF-x3eB1Lzfq-3ry8GsbLzn6izqc6nRF"
     }
 
   };
