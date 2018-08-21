@@ -20,7 +20,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    advocately:{
+      apiToken: "RF-x3eB1Lzfq-3ry8GsbLzn6izqc6nRF"
     }
+
   };
 
   if (environment === 'development') {
