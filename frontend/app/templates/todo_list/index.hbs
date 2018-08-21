@@ -6,12 +6,15 @@
 
   {{#each model as |todo_list|}}
     <tr>
-      <td>{{todo_list.title}}</td>
+      <td>
+        {{#hover-cards model=todo_list}}
+        {{/hover-cards}}
+      </td>
       <td>{{todo_list.description}}</td>
        <td>
-          {{#link-to 'todo_list.edit' todo_list}}edit{{/link-to}}
+         {{#link-to 'todo_list.edit' todo_list}}edit{{/link-to}}
       </td>
-       <td> 
+       <td>
         <a href="#" {{action 'deleteAfterConfirm' todo_list.id }}>Destroy</a>
       </td>
     </tr>

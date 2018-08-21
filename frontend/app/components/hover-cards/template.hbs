@@ -1,0 +1,23 @@
+{{#twbs-popover title="To Do List Data" popoverTrigger="hover" as |popover|}}
+  {{#popover.trigger}}
+    {{model.title}}
+  {{/popover.trigger}}
+  {{#popover.content}}
+    <div class="row">
+      <div class="col-md-6">
+        <b>Title</b>
+      </div>
+      <div class="col-md-6">
+        {{model.title}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <b>Description</b>
+      </div>
+      <div class="col-md-6">
+        {{model.description}}
+      </div>
+    </div>
+  {{/popover.content}}
+{{/twbs-popover}}
