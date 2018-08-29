@@ -5,6 +5,15 @@ module.exports = function(environment) {
     modulePrefix: 'frontend',
     environment,
     rootURL: '/',
+    fontawesome: {
+      icons: {
+        'free-solid-svg-icons': 'all',
+        'free-brands-svg-icons': 'all'
+      }
+    },
+    i18n: {
+      defaultLocale: 'en'
+    },
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -22,7 +31,7 @@ module.exports = function(environment) {
       // when it is created
     },
     advocately:{
-      apiToken: "RF-x3eB1Lzfq-3ry8GsbLzn6izqc6nRF"
+      apiToken: "ras-K9e1sKdXYjDpKXLevvSevQysx1wf"
     }
 
   };

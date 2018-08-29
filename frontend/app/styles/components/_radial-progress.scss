@@ -1,0 +1,51 @@
+/* Variations */
+$radial-size: 30px;
+$radial-size-lg: 86px;
+$radial-size-sm: 24px;
+$leadscore-cold: #2b87f4;
+
+.radial-progress {
+  background-color: $gray-light;
+  border: solid 3px $white;
+  border-radius: 50%;
+  color: $white;
+  position: absolute;
+  text-align: center;
+  z-index: 10;
+}
+
+@mixin radial-progress($radial-class-suffix, $radial-size, $pos-t, $pos-r, $font-size) {
+  .radial-progress#{$radial-class-suffix} {
+    @include size($radial-size + 6, $radial-size + 6);
+    font-size: ($radial-size + 6) / 3;
+    line-height: $radial-size;
+    right: $pos-r;
+    top: $pos-t;
+  }
+}
+
+@include radial-progress('', $radial-size, -5px, -10px, 15px);
+@include radial-progress('-lg', $radial-size-lg, 0, 0, 30px);
+@include radial-progress('-sm', $radial-size-sm, -13px, -13px, 11px);
+
+@include bg-variant('.bg-leadscore--cold', $leadscore-cold);
+@include bg-variant('.bg-leadscore--warm', $leadscore-warm);
+@include bg-variant('.bg-leadscore--hot', $leadscore-hot);
+
+.bg-leadscore--cold {
+  background-color: $white;
+  border-color: $leadscore-cold;
+  color: $leadscore-cold;
+}
+
+.bg-leadscore--warm {
+  background-color: $white;
+  border-color: $leadscore-warm;
+  color: $leadscore-warm;
+}
+
+.bg-leadscore--account {
+  background-color: #ccffcc;
+  border-color: #ccffcc;
+  color: #00b300;
+}

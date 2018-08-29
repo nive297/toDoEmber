@@ -1,0 +1,44 @@
+.popover {
+  @include box-shadow(0 0 15px $border-dark);
+  border-radius: $border-radius-base;
+  color: $gray-dark;
+  position: fixed;
+  white-space: nowrap;
+  width: auto;
+  font-size: 12px;
+  min-width: 450px;
+  max-width: 600px;
+  max-height: 250px;
+  overflow: auto;
+  padding:0;
+  &-content {
+    padding:0;
+    &--row {
+      display: flex;
+      align-items: flex-start;
+      border-bottom: solid 1px $border-light;
+      padding: 6px 14px;
+
+      &:last-child {
+        border-bottom: 0;
+        background-color: #f6f6f6;
+        color: #7e7e7e;
+      }
+    }
+  }
+
+  .arrow {
+    display: none
+  }
+}
+
+.text-ellipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+}
+
+.left{
+  margin-left:3px;
+}

@@ -1,0 +1,25 @@
+/* Custom theming variables */
+$border-dark: #e5e5e5;
+$border-radius-base: 4px !default;
+$gray-dark: lighten($gray-base, 20%) !default;
+$border-light: #f0f0f0;
+$leadscore-cold: #2b87f4;
+$leadscore-warm: #f6ca00;
+$leadscore-hot: #f26b21;
+$gray-light-medium: #c5c5c5 !default;
+$gray-base: #000 !default;
+$gray-light: lighten($gray-base, 60%) !default;
+$white: #fff;
+$font-size-base: 12px !default;
+$font-size-large: 14px !default;
+$font-size-small: 10px !default;
+$font-size-h1: 22px !default;
+$font-size-h2: 20px !default;
+$font-size-h3: 18px !default;
+$font-size-h4: 16px !default;
+$font-size-h5: $font-size-large !default;
+$font-size-h6: $font-size-base !default;
+$font-size-icon-large: $font-size-h4;
+$font-semibold-weight: 500;
+$icon-size-large: 20px;
+$icon-size-x-large: 28px;

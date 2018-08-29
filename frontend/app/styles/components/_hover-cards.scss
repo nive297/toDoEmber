@@ -1,0 +1,106 @@
+@mixin icon($position: before, $icon: false, $styles: true) {
+  @if $position == both {
+    $position: 'before, &:after';
+  }
+  &:#{$position} {
+    @if $icon {
+      content: "\2022";
+    }
+    @if $styles {
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-family: "AppIcons";
+      line-height: 1;
+      text-decoration: inherit;
+      text-rendering: optimizeLegibility;
+      text-transform: none;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    @content;
+  }
+}
+
+.popover--leadscore-score {
+  width: 13%;
+
+  .radial-progress {
+    display: inline-block;
+    position: static;
+  }
+}
+
+@include text-emphasis-variant('.text-leadscore-cold', $leadscore-cold);
+@include text-emphasis-variant('.text-leadscore-warm', $leadscore-warm);
+@include text-emphasis-variant('.text-leadscore-hot', $leadscore-hot);
+
+.leadscore-bucket-item {
+	&--classifier {
+		@include square(10px);
+		display: inline-block;
+		float: left;
+    margin-top: 11px;
+	}
+
+	&--value {
+    float: left;
+    padding-left: 10px;
+		width: 90%;
+	}
+}
+
+.lead-score-legend {
+  text-align: center;
+
+  &--item {
+    display: inline-block;
+    padding: 0 15px;
+    width: 30%;
+  }
+}
+
+.text-bold {
+    font-weight: 500;
+}
+
+p {
+    margin: 0px 0px 5px;
+}
+
+.svg-inline--fa{
+  color: grey;
+}
+
+.fa{
+  &-crown{
+    font-size: 10px;
+    color: orange;
+    vertical-align: baseline;
+  }
+  &-arrow-down{
+    font-size: 10px;
+    color: #a94442;
+  }
+  &-arrow-up{
+    font-size: 10px;
+    color: #3c763d;
+  }
+  &-phone{
+    transform: rotate(90deg);
+  }
+}
+
+.grayText{
+  color: gray;
+}
+
+.pullLeft{
+  margin-left: auto;
+}
+
+.lead-stage{
+  background: #ededed;
+  padding: 2px 5px;
+}

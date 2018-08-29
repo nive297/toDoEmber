@@ -1,0 +1,15 @@
+<span class="avatar avatar-{{avatarShape}}" data-test-avatar-shape>
+  <span class="avatar-{{avatarShape}}-part">
+    <span class="avatar-{{avatarShape}}-part avatar-content-wrap size-{{size}}-x-{{size}} avatar-initial avatar-initial-10" data-test-avatar-class>
+      <span style='text' class="avatar-content avatar-content-text" data-test-avatar-text>
+         I
+      </span>
+
+      {{#if isAvatarInactive}}
+        <i class="user-inactive icon-deactivate"></i>
+      {{/if}}
+    </span>
+  </span>
+</span>
+
+{{yield}}

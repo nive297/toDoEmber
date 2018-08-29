@@ -1,16 +1,24 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Title</th>
     <th>Description</th>
   </tr>
 
   {{#each model as |todo_list|}}
     <tr>
       <td>
-        {{#hover-cards model=todo_list}}
+        {{#hover-cards model=lead todo = todo_list type="lead"}}
         {{/hover-cards}}
       </td>
-      <td>{{todo_list.description}}</td>
+      <td>
+        {{#hover-cards model=contact todo = todo_list type="contact"}}
+        {{/hover-cards}}
+      </td>
+      <td>
+        {{#hover-cards model=account todo = todo_list type="account"}}
+        {{/hover-cards}}
+      </td>
        <td>
          {{#link-to 'todo_list.edit' todo_list}}edit{{/link-to}}
       </td>

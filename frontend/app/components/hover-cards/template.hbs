@@ -1,23 +1,111 @@
-{{#twbs-popover title="To Do List Data" popoverTrigger="hover" as |popover|}}
+{{#twbs-popover popoverTrigger="click" as |popover|}}
   {{#popover.trigger}}
-    {{model.title}}
+    {{#if (or (eq type 'lead') (eq type 'contact'))}}
+        {{todo.title}}
+    {{else}}
+        {{todo.description}}
+    {{/if}}
   {{/popover.trigger}}
   {{#popover.content}}
-    <div class="row">
-      <div class="col-md-6">
-        <b>Title</b>
+  {{#if (or (eq type 'lead') (eq type 'contact'))}}
+      <div class="popover-content--row" style="align-items:center">
+        <div class='popover--leadscore-score'>
+          {{#custom-avatar size="50" type='lead'}}
+          {{/custom-avatar}}
+        <div class="clearfix"></div>
+        </div>
+        <div class="popover--leadscore-detail">
+          <a href="#" class="text-bold" style="font-size:13px;" id = "displayName">
+            {{model.displayName}}
+          </a><br/>
+          <span id= "jobDetails">{{model.jobTitle}}, {{model.companyName}}</span><br/>
+        </div>
+        <div class="pullLeft">
+            <span>{{fa-icon 'phone'}}</span>
+            <span style="margin-left:7px;">{{fa-icon 'envelope'}}</span>
+        </div>
       </div>
-      <div class="col-md-6">
-        {{model.title}}
+    {{else}}
+      <div class="popover-content--row">
+        <div class='popover--leadscore-score'  style="width:11%;">
+          {{radial-progress percent="Wi" type="account" inverse=true}}
+        <div class="clearfix"></div>
+        </div>
+        <div class="popover--leadscore-detail">
+          <a href="#" class="text-bold" id = "displayName">
+            {{model.displayName}}
+          </a><br/>
+          <span style="font-weight:400" id = "location"> {{model.city}}, {{model.state}}, {{model.country}}</span><br/>
+          <a href="#">{{model.website}}</a>
+        </div>
       </div>
+      {{/if}}
+    <div class="popover-content--row">
+        <p style='margin-bottom:0px;'>
+          {{fa-icon "clock"}}
+          <span class="text-bold left">{{featureType}}</span>
+          <span class="grayText">since {{model.createdAt}} with
+            {{#if (eq type 'lead')}}
+              current stage in
+              <span class="text-bold lead-stage">{{model.leadStage.name}} </span>
+            {{/if}}
+            {{#if (eq type 'contact')}}
+              <a href="#">{{model.totalDealsCount}} deals</a> ({{model.wonDealsCount}} won, {{model.lostDealsCount}} lost, {{model.openDealsCount}} open)
+            {{/if}}
+            {{#if (eq type 'account')}}
+              with <a href="#">{{model.totalContactsCount}} related contacts</a>
+              and <a href="#">{{model.totalDealsCount}} deals</a>
+            {{/if}}
+          </span>
+        </p>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <b>Description</b>
-      </div>
-      <div class="col-md-6">
-        {{model.description}}
-      </div>
+    {{#if (or (eq type 'lead') (eq type 'contact'))}}
+    <div class="popover-content--row" style="border:0;">
+        <p class="text-bold">
+          Lead score&nbsp;
+          {{#if model.leadScoreInformation.didLeadScoreIncrease}}
+            <span class="text-success">
+              {{fa-icon "arrow-up"}}{{model.leadScoreInformation.percentageOfLeadScoreFluctuation}}%
+            </span>
+          {{else}}
+            <span class="text-danger">
+              {{fa-icon "arrow-down"}}{{model.leadScoreInformation.percentageOfLeadScoreFluctuation}}%
+            </span>
+          {{/if}}
+          in last 7 days. Recent activities:
+        </p>
+        <div class="pullLeft" style="font-size:11px;">
+          <a href="#"> Why lead score? </a>
+        </div>
     </div>
+    <div class="popover-content--row" style="width:80%;padding-top:0px;">
+        <div class='popover--leadscore-score' style="margin-left:10px;">
+          {{radial-progress percent=model.leadScore type=model.leadScoreInformation.bucketName inverse=true}}
+          <div class="clearfix"></div>
+          <span class="text-ellipsis text-leadscore-{{model.leadScoreInformation.bucketName}}" style="margin-left:4px;font-size:10px;">{{model.leadQuality}}</span>
+        </div>
+        <div class="popover--leadscore-detail grayText">
+          {{#each model.leadScoreInformation.factors as |factor|}}
+              <p class="text-ellipsis">
+                {{#if (eq factor.impactType 'positive')}}
+                  {{fa-icon "arrow-up"}}
+                {{else}}
+                  {{fa-icon "arrow-down"}}
+                {{/if}}
+                {{factor.displayText}}
+              </p>
+          {{/each}}
+        </div>
+    </div>
+  {{/if}}
+  <div class="popover-content--row">
+    <span>
+      {{fa-icon 'crown'}}
+      &nbsp;{{model.owner.displayName}} - Last Contacted {{model.lastContactedTime}} {{t 'operators.days_ago'}} via Email
+    </span>
+    <div class="pullLeft">
+      <a href="#">Edit</a>
+    </div>
+  </div>
   {{/popover.content}}
 {{/twbs-popover}}
